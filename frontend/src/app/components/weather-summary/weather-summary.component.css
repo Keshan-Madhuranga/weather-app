@@ -1,0 +1,95 @@
+/* form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  mat-form-field {
+    margin-bottom: 16px;
+  }
+  
+  div {
+    margin-top: 16px;
+  }
+  
+
+  table {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  .mat-column-time, .mat-column-temperature_2m_max, .mat-column-temperature_2m_min, .mat-column-rain_sum, .mat-column-snowfall_sum, .mat-column-wind_speed_10m_max, .mat-column-wind_direction_10m_dominant, .mat-column-sunrise, .mat-column-sunset {
+    text-align: center;
+  }
+
+  :host {
+    background-color: #ede7f6;
+  }
+
+  .container {
+    position: relative;
+    min-height: 200px;    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.664);
+  } */
+
+
+  :host {
+    background-color: #ede7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    position: relative;
+    min-height: 200px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  mat-form-field {
+    margin-bottom: 16px;
+  }
+  
+  div {
+    margin-top: 16px;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  .mat-column-time,
+  .mat-column-temperature_2m_max,
+  .mat-column-temperature_2m_min,
+  .mat-column-rain_sum,
+  .mat-column-snowfall_sum,
+  .mat-column-wind_speed_10m_max,
+  .mat-column-wind_direction_10m_dominant,
+  .mat-column-sunrise,
+  .mat-column-sunset {
+    text-align: center;
+  }
+  
+  button {
+    align-self: center;
+    width: fit-content;
+    margin-top: 20px;
+  }
+  

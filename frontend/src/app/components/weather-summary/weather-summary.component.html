@@ -1,0 +1,92 @@
+<div class="container">
+  <form [formGroup]="weatherForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input
+        matInput
+        formControlName="location"
+        [matAutocomplete]="auto"
+        placeholder="Enter a location"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="onOptionSelected($event)"
+      >
+        <mat-option
+          *ngFor="let option of filteredLocations | async"
+          [value]="option"
+        >
+          {{ option.name }}, {{ option.country }}, {{ option.admin1 }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="weatherForm.get('location')?.hasError('required')"
+        >Location is required</mat-error
+      >
+      <mat-error *ngIf="weatherForm.get('location')?.hasError('minlength')"
+        >Minimum 3 characters required</mat-error
+      >
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Get Weather</button>
+  </form>
+
+  <div *ngIf="weatherData.length > 0">
+    <table mat-table [dataSource]="weatherData" class="mat-elevation-z8">
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef>Time</th>
+        <td mat-cell *matCellDef="let element">{{ element.time }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="temperature_2m_max">
+        <th mat-header-cell *matHeaderCellDef>Max Temp (°C)</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.temperature_2m_max }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="temperature_2m_min">
+        <th mat-header-cell *matHeaderCellDef>Min Temp (°C)</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.temperature_2m_min }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="rain_sum">
+        <th mat-header-cell *matHeaderCellDef>Rain (mm)</th>
+        <td mat-cell *matCellDef="let element">{{ element.rain_sum }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="snowfall_sum">
+        <th mat-header-cell *matHeaderCellDef>Snow (cm)</th>
+        <td mat-cell *matCellDef="let element">{{ element.snowfall_sum }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="wind_speed_10m_max">
+        <th mat-header-cell *matHeaderCellDef>Wind Speed (km/h)</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.wind_speed_10m_max }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="wind_direction_10m_dominant">
+        <th mat-header-cell *matHeaderCellDef>Wind Direction (°)</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.wind_direction_10m_dominant }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sunrise">
+        <th mat-header-cell *matHeaderCellDef>Sunrise</th>
+        <td mat-cell *matCellDef="let element">{{ element.sunrise }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sunset">
+        <th mat-header-cell *matHeaderCellDef>Sunset</th>
+        <td mat-cell *matCellDef="let element">{{ element.sunset }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

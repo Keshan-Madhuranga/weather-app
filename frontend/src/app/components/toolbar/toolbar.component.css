@@ -1,0 +1,36 @@
+.toolbar {
+  background-color: #673ab7;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.toolbar-title {
+  font-size: 1em;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  color: #ffc107;
+}
+
+.toolbar-button:hover {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.user-info {
+  display: flex;
+  gap: 8px;
+}
+
+/* .logout-button {
+  color: #b48908;
+  font-weight: bold;
+  background-color: #e9db9e;
+  border-radius: 4px;
+  padding: 8px 16px;
+} */
