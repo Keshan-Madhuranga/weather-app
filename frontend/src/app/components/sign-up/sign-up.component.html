@@ -1,0 +1,26 @@
+<div class="register-wrapper">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Enter your email">
+        <mat-error *ngIf="email?.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="email?.hasError('email')">Please enter a valid email</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter your name">
+        <mat-error *ngIf="name?.hasError('required')">Name is required</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Enter your password">
+        <mat-error *ngIf="password?.hasError('required')">Password is required</mat-error>
+        <mat-error *ngIf="password?.hasError('minlength')">Password must be at least 6 characters long</mat-error>
+      </mat-form-field>
+    
+      <button mat-raised-button color="primary" type="submit">Sign Up</button>
+    </form>
+    <p>Have an account? <a routerLink="/signin">Sign In</a></p>
+    </div>

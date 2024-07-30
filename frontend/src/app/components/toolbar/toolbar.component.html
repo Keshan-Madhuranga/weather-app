@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="toolbar-title">Weather Summary</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="isSignedIn">
+    <button mat-menu-item (click)="logout()" style="color: brown">
+      Logout
+    </button>
+  </ng-container>
+</mat-toolbar>
