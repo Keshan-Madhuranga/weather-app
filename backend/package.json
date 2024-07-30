@@ -10,10 +10,12 @@
   "author": "madhurangasgk@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.5.1"
+    "mongoose": "^8.5.1",
+    "socket.io": "^4.7.5"
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
